@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <!-- <link rel="stylesheet" href="./css/styles.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <style>
+        .col-3 {
+            width: 70px;
+        }
+
+        button {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container d-grid justify-content-center py-2 px-3 bg-light ">
+        <div class="d-grid justify-content-center py-2 px-3 bg-light" style="border: 1px solid #ccc;">
+            <h1>Calculator</h1>
+
+            <input type="text" class="row form-control shadow-sm mb-2 " id="input" style="width: 280px;">
+
+
+            <div class="row">
+                <button type="button" class="col-3  mb-1 btn btn-outline-secondary button btn-block">+</button>
+
+                <button type="button" class="col-3 mb-1 btn btn-outline-secondary button btn-block">-</button>
+
+
+                <button type="button" class="col-3 mb-1 btn btn-outline-secondary button btn-block">/</button>
+
+                <button type="button" class="col-3 mb-1 btn btn-danger button btn-block">C</button>
+
+
+            </div>
+
+
+            <div class="row">
+                <button type="button" class="col-3 mb-1 btn btn-outline-secondary button btn-block">7</button>
+
+                <button type="button" class="col-3 mb-1 btn btn-outline-secondary button btn-block">8</button>
+
+
+                <button type="button" class="col-3 mb-1 btn btn-outline-secondary button btn-block">9</button>
+
+                <button type="button" class="col-3 mb-1 btn btn-warning button btn-block">*</button>
+
+
+            </div>
+            <div class="row">
+                <div class="col" style="width: 210px;">
+                    <div class="row" style="width: 210px;">
+                        <button type="button" class="col mb-1 btn btn-outline-secondary button btn-block">4</button>
+                        <button type="button" class="col mb-1 btn btn-outline-secondary button btn-block">5</button>
+                        <button type="button" class="col mb-1 btn btn-outline-secondary button btn-block">6</button>
+                        <!-- <button type="button" class="col-3 mb-1 btn btn-warning button btn-block" colspan="2">/</button> -->
+
+                    </div>
+
+                    <div class="row" style="width: 210px;">
+
+                        <button type="button" class="col-3 mb-1 btn btn-outline-secondary button btn-block">1</button>
+
+                        <button type="button" class="col-3 mb-1 btn btn-outline-secondary button btn-block">0</button>
+
+                        <button type="button" class="col-3 mb-1 btn btn-outline-secondary button btn-block">2</button>
+
+                    </div>
+                </div>
+                <button type="button" class="col mb-1 btn btn-dark button btn-block" style="height: 80px;">=</button>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+
+
+
+<script>
+    let string = "";
+    let buttons = document.querySelectorAll('.button');
+    console.log(buttons);
+    // const date = new Date();
+    Array.from(buttons).forEach((button) => {      //converting buttons to an array
+        button.addEventListener('click', (e) => {
+            if (e.target.innerHTML == '=') {
+                string = eval(string);
+                document.querySelector('input').value = string;
+            }
+            else if (e.target.innerHTML == 'C') {
+                string = ""
+                document.querySelector('input').value = string;
+            }
+            // document.querySelector('input').value = string;
+            else {
+                console.log(e.target)
+                string = string + e.target.innerHTML;     //Target is when we are working with a loop on eventlistner.
+                document.querySelector('input').value = string;
+            }
+
+        })
+    })
+</script>
+
+</html>
